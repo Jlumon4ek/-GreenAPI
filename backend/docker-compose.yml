@@ -1,0 +1,29 @@
+services:
+  backend:
+    container_name: api-backend
+    build:
+      context: .
+      dockerfile: dockerfiles/dev.dockerfile
+    ports:
+      - "8000:8000"
+    command: 
+      ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload"]
+    networks:
+      - api-udp
+
+
+  nginx:
+    image: nginx:latest
+    container_name: api-nginx
+    ports:
+      - "80:80"
+    networks:
+      - api-udp
+    volumes:
+      - "../frontend:/usr/share/nginx/html"
+      - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
+    restart: always
+
+networks:
+  api-udp:
+    driver: bridge

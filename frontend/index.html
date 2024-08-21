@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>API Interface</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <div class="types">
+                <input type="text" id="idInstance" placeholder="idInstance">
+                <input type="text" id="apiTokenInstance" placeholder="ApiTokenInstance">
+            </div>
+            <div class="types">
+                <button onclick="getSettings()">getSettings</button>
+            </div>
+            <div class="types">
+                <button onclick="getStateInstance()">getStateInstance</button>
+            </div>
+            <div class="types">
+                <input type="text" id="phoneNumber" placeholder="77771234567">
+                <input type="text" id="message" placeholder="Hello World!">
+                <button onclick="sendMessage()">sendMessage</button>
+            </div>
+            <div class="types">
+                <input type="text" id="phoneNumberFile" placeholder="77771234567">
+                <input type="text" id="fileUrl" placeholder="https://my.site.com/img/horse.png">
+                <input type="text" id="caption" placeholder="Hello World, not required">
+                <button onclick="sendFileByUrl()">sendFileByUrl</button>
+            </div>
+        </div>
+        <div class="output">
+            <h2>Ответ:</h2>
+            <pre id="response">{
+    "idMessage": "3EBC7C7D9F7B7C7C9D"
+}</pre>
+        </div>
+    </div>
+</body>
+
+</html>
